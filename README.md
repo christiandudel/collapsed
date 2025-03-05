@@ -2,8 +2,14 @@
 
 Christian Dudel, dudel@demogr.mpg.de
 
+First commit: March 5, 2025
+
+## Summary
+
 Simple simulation script to assess the impact of collapsing dummy predictors of 
 opposite signs into one dummy. Proof of concept.
+
+## Background
 
 The idea is as follows. Assume that the data generating process is given by 
 $y_i=a+b_1d_1+b_2d_2+e_i$. $y_i$ is some outcome variable for unit $i$, $a$ is 
