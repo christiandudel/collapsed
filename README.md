@@ -25,7 +25,10 @@ Now assume that instead of the correct model, a misspecified regression is
 estimated: $y_i=k+b_t t + b_c c_i+f_i$. Here, $b_t$ is a slope for time $t$; 
 $c_i$ is a collapsed version of $d_1$ and $d_2$, and it equals 1 if $d$ either 
 equals 1 or 2; $f_i$ again is a well-behaved error term. The estimate of $b_t$
-should be around zero. However, depending on $b_1$ and $b_2$ and due to the
-fact how the data-generating process is set up, it is feasible to produce
-severly biased estimates of $b_t$ when controlling for $c_i$ instead of $d_1$
-and $d_2$.
+should be around zero, as the outcome does not depend on time. However, 
+depending on $b_1$ and $b_2$ and on the details of the data-generating process, 
+it is feasible to produce severly biased estimates of $b_t$ when controlling for 
+$c_i$ instead of $d_1$ and $d_2$. If, instead, for the same data the model
+$y_i=a+b_t t +b_1d_1+b_2d_2+e_i$ is estimated, the estimate of $b_t$ will not
+be biased. 
+
