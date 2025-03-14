@@ -14,7 +14,7 @@ startpositive <- 0.4
 endpositive <- 0.05
 
 startnegative <- 0.1
-endnegative <- 0.2
+endnegative <- 0.4
 
 # Years
 years <- 1970:2020
@@ -68,15 +68,22 @@ for(year in years) {
 # Dummy for selection
 simulateddata$selected <- as.numeric(simulateddata$positive==1|simulateddata$negative==1)
 
+# Dummy for "unselected"
+simulateddata$unselected <- as.numeric(simulateddata$positive!=1)
+
 # Regressions
 fit1 <- lm(outcome~year,data=simulateddata)
 fit2 <- lm(outcome~year+selected,data=simulateddata)
-fit3 <- lm(outcome~year+positive+negative,data=simulateddata)
+fit3 <- lm(outcome~year+positive,data=simulateddata)
+fit4 <- lm(outcome~year,data=simulateddata[simulateddata$positive!=1,])
+fit5 <- lm(outcome~year+positive+negative,data=simulateddata)
 
 # Results: overview
 summary(fit1)
 summary(fit2)
 summary(fit3)
+summary(fit4)
+summary(fit5)
 
 # Effect of going from first to last year, standardized
 coef(fit1)["year"]*nyears/sd(simulateddata$outcome)
