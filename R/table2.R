@@ -29,6 +29,8 @@ infertile_sc_u_2
 1-infertile_sc_u_2/infertile_sc_u_1
 1-unselected_sc_2/unselected_sc_1
 
+#########
+
 
 ### Proportions infertile for which SC of infertile men is not negative in 2018
 childless2 <- seq(0.01,0.99,by=0.01)
