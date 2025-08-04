@@ -1,4 +1,11 @@
-# Range of proportions negatively selected
+### Numbers from Human reproduction
+unselected_sc_1 <- 101.2 #
+unselected_sc_2 <- 49.0 # 2018
+
+fertile_sc_1 <- 77.3 # 1977
+fertile_sc_2 <- 72.8 # 2017
+
+### Range of proportions negatively selected
 childless1 <- seq(0.01,0.99,by=0.01)
 childless2 <- seq(0.01,0.99,by=0.01)
 child1 <- 1-childless1
@@ -8,13 +15,6 @@ nc2 <- length(childless2)
 
 # Matrix for results
 results <- matrix(data=NA,nrow=nc1,ncol=nc2)
-
-# Numbers from Human reproduction
-unselected_sc_1 <- 101.2 #
-unselected_sc_2 <- 49.0 # 2018
-
-fertile_sc_1 <- 77.3 # 1977
-fertile_sc_2 <- 72.8 # 2017
 
 # Values
 start <- (unselected_sc_1-fertile_sc_1*child1)/childless1
