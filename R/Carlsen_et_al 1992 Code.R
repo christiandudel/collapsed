@@ -19,7 +19,7 @@
                                   labels = c("proven fertile", "unselected"))
   
   # Mean vs median as factor
-  Carlsen1992$Measure <- factor(Carlsen1992$Measure     , 
+  Carlsen1992$Measure <- factor(Carlsen1992$Measure, 
                                 levels = c(1, 2), 
                                 labels = c("mean", "median"))
 
@@ -28,9 +28,13 @@
 
   # Figure 1
   Carlsen1992 |> 
-  ggplot(aes(x = Year, y = SpermCount,weight = SampleSize)) +
-    geom_point(aes(size = log(SampleSize)), shape = 21, stroke = 1) +
-    geom_smooth(method = "lm", linetype = 5, se = FALSE ) +
+  ggplot(aes(x = Year, y = SpermCount, weight = SampleSize)) +
+    geom_point(aes(size = log(SampleSize)), 
+                   shape = 21, 
+                   stroke = 1) +
+    geom_smooth(method = "lm", 
+                linetype = 5, 
+                se = FALSE ) +
     scale_size_continuous(range = c(0.01, 6)) +
     ylim(0, 150) +
     xlim(1937,1990)+
@@ -48,6 +52,9 @@
   summary(lm(SpermCount ~ Year, data = Carlsen1992, weights = SampleSize))
   summary(lm(SpermCount ~ Year, data = Carlsen1992))
   summary(lm(SpermCount ~ Year + Fertility + Measure, data = Carlsen1992, weights = SampleSize))
+  
+  fit1 <- lm(SpermCount ~ Year, data = Carlsen1992, weights = SampleSize)
+  diff(predict(fit1,data.frame(Year=c(1940,1990))))
   
   # Apart from the difference between Fig 1 and the figure with all data 
   # points, our results are largely consistent with Carlsen et al. 
@@ -70,6 +77,8 @@
     theme_minimal()
   
   summary(lm(SpermCount ~ Year, data = subset(Carlsen1992, Year > 1970), weights = SampleSize))
+  summary(lm(SpermCount ~ Year, data = subset(Carlsen1992, Year > 1970)))
+  
   
   # Only data after 1980
   Carlsen1992 |> 
