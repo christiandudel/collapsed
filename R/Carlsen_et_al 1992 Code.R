@@ -48,8 +48,10 @@
   # the studies included in the meta analysis  had 3 day abstinence period 
   # prescribed and perhaps Fig 1 just shows these data points. 
   
-  # Regression with and without weights and with all variables
+  # Regression results from Carlsen et al (p. 610, left column, last paragraph)
   summary(lm(SpermCount ~ Year, data = Carlsen1992, weights = SampleSize))
+  
+  # Regression without weights and with all variables
   summary(lm(SpermCount ~ Year, data = Carlsen1992))
   summary(lm(SpermCount ~ Year + Fertility + Measure, data = Carlsen1992, weights = SampleSize))
   
@@ -78,7 +80,6 @@
   
   summary(lm(SpermCount ~ Year, data = subset(Carlsen1992, Year > 1970), weights = SampleSize))
   summary(lm(SpermCount ~ Year, data = subset(Carlsen1992, Year > 1970)))
-  
   
   # Only data after 1980
   Carlsen1992 |> 
