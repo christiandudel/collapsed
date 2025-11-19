@@ -55,11 +55,13 @@
   summary(lm(SpermCount ~ Year, data = Carlsen1992))
   summary(lm(SpermCount ~ Year + Fertility + Measure, data = Carlsen1992, weights = SampleSize))
   
+  # Predict values
   fit1 <- lm(SpermCount ~ Year, data = Carlsen1992, weights = SampleSize)
+  predict(fit1,data.frame(Year=c(1940,1990)))
   diff(predict(fit1,data.frame(Year=c(1940,1990))))
   
   # Apart from the difference between Fig 1 and the figure with all data 
-  # points, our results are largely consistent with Carlsen et al. 
+  # points, our results so far are consistent with Carlsen et al. 
 
 
 ### General robustness checks ##################################################
